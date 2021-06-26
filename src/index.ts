@@ -58,7 +58,10 @@ function genAdapter() {
         // 首先缓存存放策略，建议始终保持localstorage
         primaryStorage: StorageType.local,
         // sessionStorage为可选项，如果平台不支持可不填
-        sessionStorage: sessionStorage
+        // sessionStorage: Storage,
+        getAppSign() {
+            return my.getAppIdSync().appId;
+        }
     };
     return adapter;
 }
@@ -67,7 +70,7 @@ const adapter = {
     genAdapter,
     isMatch,
     // runtime标记平台唯一性
-    runtime: 'ali_mp'
+    runtime: 'ali_miniapp'
 };
 
 export {adapter};
